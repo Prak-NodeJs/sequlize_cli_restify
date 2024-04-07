@@ -1,0 +1,30 @@
+sequelize cli..
+steps;;
+
+install sequelize
+
+npm install --save-dev sequelize-cli
+
+project intilization.
+npx sequelize-cli init
+
+Creating the first Model (and Migration)
+
+
+npx sequelize-cli model:generate --name User --attributes firstName:string,lastName:string,email:string
+
+npx sequelize-cli model:generate --name Product --attributes title:string,price:integer,quantity:integer,stock:integer
+
+
+migrate tables;
+npx sequelize-cli db:migrate
+
+
+
+//undo all migration
+undo most recent migration
+
+npx sequelize-cli db:migrate:undo
+
+//undo all migration
+npx sequelize-cli db:migrate:undo:all
