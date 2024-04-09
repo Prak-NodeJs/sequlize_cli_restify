@@ -12,7 +12,7 @@ const server= restify.createServer({handleUncaughtExceptions: true}
 
 //middleware
 server.use(restify.plugins.authorizationParser())
-server.use(restify.plugins.bodyParser())
+server.use(restify.plugins.jsonBodyParser());
 server.use(restify.plugins.dateParser())
 server.use(restify.plugins.queryParser())
 
