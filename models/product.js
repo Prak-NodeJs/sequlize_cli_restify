@@ -17,16 +17,26 @@ module.exports = (sequelize, DataTypes) => {
         foreignKey:'categoryId'
       })
     }
-  
   }
   Product.init({
-    title: DataTypes.STRING,
-    price: DataTypes.INTEGER,
-    images:DataTypes.JSON,
-    quantity: DataTypes.INTEGER,
-    userId:DataTypes.INTEGER,
-    stock: DataTypes.INTEGER,
-    categoryId:DataTypes.INTEGER
+    title: {
+      allowNull:false,
+      type: DataTypes.STRING
+    },
+    price: {
+      allowNull:false,
+      defaultValue:0.0,
+      type: DataTypes.DECIMAL(10,2)
+    },
+    quantity: {
+      allowNull:false,
+      defaultValue:1,
+      type: DataTypes.INTEGER
+    },
+    stock: {
+      allowNull:false,
+      type: DataTypes.INTEGER
+    },
   }, {
     sequelize,
     modelName: 'Product',

@@ -10,16 +10,25 @@ module.exports = {
         type: Sequelize.INTEGER
       },
       userName: {
-        type: Sequelize.STRING
+        allowNull:false,
+        unique:true,
+        type: Sequelize.STRING,    
       },
       name: {
-        type: Sequelize.STRING
+        allowNull:false,
+        type: Sequelize.STRING,
+       
       },
       email: {
-        type: Sequelize.STRING
+        allowNull:false,
+        unique:true,
+        type: Sequelize.STRING,
+       
       },
       password:{
-        type:Sequelize.STRING
+        allowNull:false,
+        type:Sequelize.STRING,
+        
       },
       image:{
         type:Sequelize.STRING
@@ -28,7 +37,6 @@ module.exports = {
         allowNull:false,
         defaultValue:'Active',
         type:Sequelize.STRING, 
-        
       },
       createdAt: {
         allowNull: false,

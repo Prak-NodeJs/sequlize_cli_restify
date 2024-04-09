@@ -37,13 +37,10 @@ fs
   });
 
 
-  sequelize.sync()
-  .then(() => {
-    console.log('Models synchronized with database.');
-  })
-  .catch(err => {
-    console.error('Unable to sync models with the database:', err);
-  });
+// Sync models with the database
+sequelize.sync({ alter: true })
+ .then(() => console.log('Tables created.'))
+ .catch(err => console.error('Error syncing models:', err));
 
 
 Object.keys(db).forEach(modelName => {

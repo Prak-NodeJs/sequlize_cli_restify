@@ -10,32 +10,43 @@ module.exports = {
         type: Sequelize.INTEGER
       },
       title: {
+        allowNull:false,
         type: Sequelize.STRING
       },
       price: {
-        type: Sequelize.INTEGER
-      },
-      images:{
-        type:Sequelize.JSON,
-        allowNull:true
+        allowNull:false,
+        defaultValue:0.0,
+        type: Sequelize.DECIMAL(10,2)
       },
       quantity: {
         allowNull:false,
         defaultValue:1,
-        type: Sequelize.INTEGER,   
+        type: Sequelize.INTEGER
       },
       stock: {
-        type: Sequelize.INTEGER,
         allowNull:false,
+        type: Sequelize.INTEGER
       },
-      userId:{
-        type:Sequelize.INTEGER,
-        allowNull:false
+      userId: {
+        type: Sequelize.DataTypes.INTEGER,
+        references: {
+          model: {
+            tableName: 'users',
+          },
+          key: 'id'
+        },
+        allowNull: false
       },
-      categoryId:{
-        type:Sequelize.INTEGER,
-        allowNull:false
+       categoryId:{
+       type:Sequelize.INTEGER,
+       references: {
+        model: {
+          tableName: 'Categories',
+        },
+        key: 'id'
       },
+      allowNull: false
+    },
       createdAt: {
         allowNull: false,
         type: Sequelize.DATE

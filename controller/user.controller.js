@@ -88,3 +88,23 @@ const loginUser = (req, res, next) => {
 };
 
 module.exports = { registerUser, loginUser};
+
+
+
+const registerUser2 = (req, res, next) => {
+  (async () => {
+    console.log("hellol");
+    try {
+      const { userName, password, email } = req.body;
+      const isUserNameExist = await User.findOne({
+        where: {
+          userName,
+        },
+      });
+    }
+catch(error){
+  next(error)
+}
+    })()
+
+  }
